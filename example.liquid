@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Ruby Toys -- {{ name }}</title>
+  </head>
+  <body>
+
+    <h1>{{ name }} ({{ code }})</h1>
+    <p>{{ desc }}</p>
+
+    <ul>
+      {% for f in features %}
+        <li>
+          <b>{{ f }}</b>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <p>
+      {% if cost < 10 %}
+        <b>Only {{ cost }}!!!</b>
+      {% else %}
+        Call for a price, today!
+      {% endif %}
+    </p>
+
+  </body>
+</html>

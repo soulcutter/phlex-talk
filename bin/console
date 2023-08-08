@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "phlex"
+
+require "pathname"
+PROJECT_DIRECTORY = Pathname(__FILE__).dirname.parent.expand_path
+$:.unshift PROJECT_DIRECTORY
+require "example_phlex.rb"
+
+def reload
+  load "example_phlex.rb"
+end
+
+require "irb"
+IRB.start(__FILE__)

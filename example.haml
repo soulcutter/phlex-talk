@@ -1,0 +1,17 @@
+%html
+  %head
+    %title Ruby Toys -- #{@name}
+  %body
+    %h1 #{@name} (#{@code})
+    %p= @desc
+
+    %ul
+      - @features.each do |f|
+        %li
+          %b= f
+    
+    %p
+      - if @cost < 10
+        %b Only #{@cost}!!!
+      - else
+        Call for a price, today!

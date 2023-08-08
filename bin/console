@@ -8,8 +8,17 @@ PROJECT_DIRECTORY = Pathname(__FILE__).dirname.parent.expand_path
 $:.unshift PROJECT_DIRECTORY
 require "example_phlex.rb"
 
-def reload
-  load "example_phlex.rb"
+def reload = load "example_phlex.rb"
+
+def run_example(**kwargs)
+  context = {
+    name: "Bradley Schaefer", 
+    code: "Soulcutter",
+    desc: "An okay human", 
+    features: %w[wingding thing-a-magig doodad],
+    cost: 11,
+  }.merge(kwargs.slice(:name, :code, :desc, :features, :cost))
+  ExamplePhlex.new(**context).call()
 end
 
 require "irb"

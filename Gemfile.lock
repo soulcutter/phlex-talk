@@ -3,12 +3,32 @@ GEM
   specs:
     cgi (0.3.6)
     concurrent-ruby (1.2.2)
+    diff-lcs (1.5.0)
     erb (4.0.2)
       cgi (>= 0.3.3)
+    nokogiri (1.15.4-x86_64-darwin)
+      racc (~> 1.4)
     phlex (1.6.1)
       concurrent-ruby (~> 1.2)
       erb (>= 4)
       zeitwerk (~> 2.6)
+    phlex-testing-nokogiri (0.1.0)
+      nokogiri (~> 1.13)
+      phlex (>= 0.5)
+    racc (1.7.1)
+    rspec (3.12.0)
+      rspec-core (~> 3.12.0)
+      rspec-expectations (~> 3.12.0)
+      rspec-mocks (~> 3.12.0)
+    rspec-core (3.12.2)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.6)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-support (3.12.1)
     zeitwerk (2.6.8)
 
 PLATFORMS
@@ -16,6 +36,8 @@ PLATFORMS
 
 DEPENDENCIES
   phlex
+  phlex-testing-nokogiri
+  rspec
 
 BUNDLED WITH
    2.4.15

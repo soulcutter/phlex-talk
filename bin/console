@@ -4,7 +4,7 @@ require "bundler/setup"
 require "phlex"
 
 require "pathname"
-PROJECT_DIRECTORY = Pathname(__FILE__).dirname.parent.expand_path
+PROJECT_DIRECTORY = (Pathname(__FILE__).dirname.parent / "lib").expand_path
 $:.unshift PROJECT_DIRECTORY
 require "example_phlex.rb"
 
@@ -19,6 +19,13 @@ def run_example(**kwargs)
     cost: 11,
   }.merge(kwargs.slice(:name, :code, :desc, :features, :cost))
   ExamplePhlex.new(**context).call()
+end
+
+def open_example(**)
+  html = run_example(**)
+  filename = (Pathname(__FILE__).dirname.parent / "assets" / "example.html").expand_path
+  File.write(filename, html)
+  `open #{filename}`
 end
 
 require "irb"

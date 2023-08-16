@@ -1,3 +1,5 @@
+require "phlex"
+
 class ExamplePhlex < Phlex::HTML
   def initialize(name:, code:, desc:, features:, cost:)
     @name = name

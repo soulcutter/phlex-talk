@@ -1,4 +1,4 @@
-require "phlex-testing-nokogiri"
+require "example_phlex"
 
 RSpec.describe ExamplePhlex do
   include Phlex::Testing::Nokogiri::DocumentHelper

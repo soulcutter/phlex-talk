@@ -16,11 +16,12 @@ class ExamplePhlex < Phlex::HTML
         h1 { "#{@name} (#{@code})" }
         p { @desc }
 
-        ul do
-          @features.each do |f|
-            li { b { f } }
-          end
-        end
+        # ul do
+        #   @features.each do |f|
+        #     list_item(f)
+        #   end
+        # end
+        feature_list { |feature| b { feature } }
 
         p do
           if @cost < 10
@@ -31,5 +32,17 @@ class ExamplePhlex < Phlex::HTML
         end
       end
     end
+  end
+
+  def feature_list
+    ul do
+      @features.each do |feature|
+        li { yield feature }
+      end
+    end
+  end
+
+  def list_item(feature)
+    li { b { feature } }
   end
 end

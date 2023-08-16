@@ -13,6 +13,6 @@ RSpec.describe ExamplePhlex do
 
   it "renders a list" do
     output = render ExamplePhlex.new(**template_params(features: %w[one two]))
-    expect(output.css("li").map(&:text)).to eq %w[one two]
+    expect(output.css("li > b").map(&:text)).to eq %w[one two]
   end
 end

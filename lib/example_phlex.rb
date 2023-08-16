@@ -16,10 +16,13 @@ class ExamplePhlex < Phlex::HTML
         h1 { "#{@name} (#{@code})" }
         p { @desc }
 
-        ul do
-          @features.each do |f|
-            li { b { f } }
-          end
+        # ul do
+        #   @features.each do |f|
+        #     li { b { f } }
+        #   end
+        # end
+        render FeatureList.new(@features) do |list|
+          b { list.feature }
         end
 
         p do
@@ -28,6 +31,22 @@ class ExamplePhlex < Phlex::HTML
           else
             "Call for a price, today!"
           end
+        end
+      end
+    end
+  end
+end
+
+class FeatureList < Phlex::HTML
+  attr_reader :feature
+  def initialize(features) = @features = features
+
+  def template(&block)
+    ul do
+      @features.each do |feature|
+        li do
+          @feature = feature
+          yield_content(&block)
         end
       end
     end

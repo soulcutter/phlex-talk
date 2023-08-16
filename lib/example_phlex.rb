@@ -21,8 +21,8 @@ class ExamplePhlex < Phlex::HTML
         #     li { b { f } }
         #   end
         # end
-        render FeatureList.new(@features) do |list|
-          b { list.feature }
+        render FeatureList.new(@features) do |feature|
+          b { feature }
         end
 
         p do
@@ -38,16 +38,12 @@ class ExamplePhlex < Phlex::HTML
 end
 
 class FeatureList < Phlex::HTML
-  attr_reader :feature
   def initialize(features) = @features = features
 
-  def template(&block)
+  def template(&)
     ul do
       @features.each do |feature|
-        li do
-          @feature = feature
-          yield_content(&block)
-        end
+        li { yield_content_with_args(feature, &) }
       end
     end
   end
